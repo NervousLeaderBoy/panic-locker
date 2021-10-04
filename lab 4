@@ -1,47 +1,49 @@
 #include <iostream>
 int main()
 {
-	//Íàõîæäåíèå ïëîùàäè è ïåðèìåòðà ïðÿìîóãîëüíèêà
+	setlocale(LC_ALL, "Russian");
+
+	//Нахождение площади и периметра прямоугольника
 	float a, b, S, P;
-	std::cout << "Enter sides of rectangle: ";
+	std::cout << "Введите стороны прямоугольника: ";
 	std::cin >> a >> b;
 	S = a * b;
 	P = (a + b) * 2;
-	std::cout << "S = " << S << '\n';
-	std::cout << "P = " << P << '\n' << '\n'; //Âòîðîé ïåðåíîñ ñòðîêè ïðîñòî äëÿ êðàñîòû â êîíñîëè
+	std::cout << "Площадь = " << S << '\n';
+	std::cout << "Периметр = " << P << '\n' << '\n'; //Второй перенос строки просто для красоты в консоли
 
-	//Íàõîæäåíèå äëèíû îêðóæíîñòè
+	//Нахождение длины окружности
 	float d, L;
 	const float Pi = 3.14;
-	std::cout << "Enter diameter of the circle: ";
+	std::cout << "Введите диаметр окружности: ";
 	std::cin >> d;
 	L = Pi * d;
-	std::cout << "L = " << L << '\n' << '\n';
+	std::cout << "Длина окружности = " << L << '\n' << '\n';
 
-	//Íàõîæäåíèå ñðåäíåãî àðèôìåòè÷åñêîãî äâóõ ÷èñåë
+	//Нахождение среднего арифметического двух чисел
 	float average;
-	std::cout << "Enter two numbers: ";
+	std::cout << "Введите два числа: ";
 	std::cin >> a >> b;
 	average = (a + b) / 2;
-	std::cout << "Average = " << average << '\n' << '\n';
+	std::cout << "Среднее арифметическое = " << average << '\n' << '\n';
 
-	//Íàõîæäåíèå ñóììû, ðàçíîñòè, ïðîèçâåäåíèÿ è ÷àñòíîãî êâàäðàòîâ äâóõ ÷èñåë
+	//Нахождение суммы, разности, произведения и частного квадратов двух чисел
 	double sum, dif, pr, quo;
-	std::cout << "Enter two numbers: ";
+	std::cout << "Введите два ненулевых числа: ";
 	std::cin >> a >> b;
 	sum = pow(a, 2) + pow(b, 2);
 	dif = pow(a, 2) - pow(b, 2);
 	pr = pow(a, 2) * pow(b, 2);
 	quo = pow(a, 2) / pow(b, 2);
-	std::cout << "Sum = " << sum << '\n' << "Difference = " << dif << '\n' << "Product = " << pr << '\n' << "Quotient = " << quo << '\n';
+	std::cout << "Сумма = " << sum << '\n' << "Разность = " << dif << '\n' << "Произведение = " << pr << '\n' << "Частное = " << quo << '\n';
 	
-	//Íàõîæäåíèå ñóììû, ðàçíîñòè, ïðîèçâåäåíèÿ è ÷àñòíîãî ìîäóëåé äâóõ ÷èñåë
-	std::cout << "Enter two numbers: ";
+	//Нахождение суммы, разности, произведения и частного модулей двух чисел
+	std::cout << "Введите два ненулевых числа: ";
 	std::cin >> a >> b;
 	sum = abs(a) + abs(b);
 	dif = abs(a) - abs(b);
 	pr = abs(a) * abs(b);
 	quo = abs(a) / abs(b);
-	std::cout << "Sum = " << sum << '\n' << "Difference = " << dif << '\n' << "Product = " << pr << '\n' << "Quotient = " << quo << '\n';
+	std::cout << "Сумма = " << sum << '\n' << "Разность = " << dif << '\n' << "Произведение = " << pr << '\n' << "Частное = " << quo << '\n';
 	return 0;
 }
