@@ -1,0 +1,28 @@
+#include <iostream>
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+
+	//Найти расстояние между двумя точками с заданными координатами
+	double x1, x2, y1, y2, a, b, c;
+	std::cout << "Введите координаты первой точки: ";
+	std::cin >> x1 >> x2;
+	std::cout << "Введите координаты второй точки: ";
+	std::cin >> y1 >> y2;
+	a = abs(x2 - x1);
+	b = abs(y2 - y1);
+	c = sqrt(pow(a, 2) + pow(b, 2));
+	std::cout << "Расстояние между точками = " << c << '\n' << '\n'; //Дополнительный перенос строки для красоты в консоли
+
+
+	//Найти длину отрезков и их сумму
+	double AC, BC, sum;
+	std::cout << "Введите точки A, B, C: ";
+	std::cin >> a >> b >> c;
+	AC = abs(a - c);
+	BC = abs(b - c);
+	sum = AC + BC;
+	std::cout << "AC = " << AC << '\n' << "BC = " << BC << '\n' << "Сумма длин отрезков = " << sum << '\n' << '\n';
+
+	return 0;
+}
