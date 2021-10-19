@@ -1,0 +1,73 @@
+#include <iostream>
+#include <math.h>
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+
+	//1.Поменять местами значение переменных
+	float A, B, k;
+	std::cout << "Введите переменные А и В: ";
+	std::cin >> A >> B;
+	k = A;
+	A = B;
+	B = k;
+	std::cout << "Новое значение А = " << A << std::endl << "Новое значение В = " << B << std::endl << std::endl; //Второй перенос для красоты
+
+
+	//2.Поменять местами значение переменных А в В, В в С, С в А
+	float C;
+	std::cout << "Введите переменные А, В и С: ";
+	std::cin >> A >> B >> C;
+	k = C;
+	C = B;
+	B = A;
+	A = k;
+	std::cout << "Новое значение А = " << A << std::endl << "Новое значение В = " << B << std::endl << "Новое значение С = " << C << std::endl << std::endl;
+
+	//3.А в С, С в В, В в А
+	std::cout << "Введите переменные А, В и С: ";
+	std::cin >> A >> B >> C;
+	k = C;
+	C = A;
+	A = B;
+	B = k;
+	std::cout << "Новое значение А = " << A << std::endl << "Новое значение В = " << B << std::endl << "Новое значение С = " << C << std::endl << std::endl;
+
+
+	//4.Найти значение функции
+	float x, y;
+	std::cout << "Введите х: ";
+	std::cin >> x;
+	y = 3 * pow(x, 6) - 6 * pow(x, 2) - 7;
+	std::cout << "y = 3*x^6 - 6*x^2 - 7 = " << y << std::endl << std::endl;
+
+	//5.Найти значение функции
+	std::cout << "Введите х: ";
+	std::cin >> x;
+	y = 4 * pow((x - 3), 6) - 7 * pow((x - 3), 2) + 2;
+	std::cout << "y = 4*(x-3)^6 - 7*(x-3)^2 + 2 = " << y << std::endl << std::endl;
+
+
+	//6.Вычислить А^8 
+	float q;
+	std::cout << "Введите А: ";
+	std::cin >> A;
+	q = A * A;
+	q = q * q;
+	q = q * q;
+	std::cout << "А^8 = " << q << std::endl << std::endl;
+
+
+	//7.Вычислить А^15 
+	float w;
+	std::cout << "Введите А: ";
+	std::cin >> A;
+	q = A * A; //2 ст
+	w = q * q * A; // 5 ст
+	q = w * w * w; //5 + 5 + 5 ст
+	std::cout.precision(0); //я не хочу, чтобы выводились знаки после запятой
+	std::cout << "А^15 = " << std::fixed << q << std::endl << std::endl;
+
+	return 0;
+}
