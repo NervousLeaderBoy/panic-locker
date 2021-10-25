@@ -1,0 +1,97 @@
+#include <iostream>
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+
+	//Найти количество секунд
+	int sec, last_sec;
+	std::cout << "Введите количество секунд прошедших с начала этих суток: ";
+	std::cin >> sec;
+	if (sec > 0 && sec < 24 * 60 * 60)
+	{
+		last_sec = sec % 60;
+		std::cout << "Секунд прошло с начала последней минуты: " << last_sec << std::endl << std::endl;
+	}
+	else
+	{
+		std::cout << "Прошло уже больше суток, значение должно быть меньше." << std::endl << std::endl;
+	}
+
+
+	//Определить номер дня недели К дня, 1 января - понедельник
+	int day, last_day;
+	std::cout << "Введите номер К-го дня года: ";
+	std::cin >> day;
+	if (day >= 1 && day <= 365)
+	{
+		last_day = day % 7;
+		std::cout << "Число К-го дня недели: " << last_day << std::endl << std::endl;
+	}
+	else
+	{
+		std::cout << "С новым годом. Значение дня должно быть в диапазоне 1-365." << std::endl << std::endl;
+	}
+
+
+	//Определить номер дня недели К дня, 1 января задается пользователем
+	int first_day;
+	std::cout << "Введите номер К-го дня года: ";
+	std::cin >> day;
+	std::cout << "Введите номер дня недели 1 января: ";
+	std::cin >> first_day;
+
+	if ((day >= 1 && day <= 365) && (first_day >= 1 && first_day <= 7))
+	{
+		last_day = (day % 7 + first_day - 1) % 7;
+		std::cout << "Число К-го дня недели: " << last_day << std::endl << std::endl;
+	}
+	else
+	{
+		std::cout << "Одно из значений некорректно. Номер дня должен лежать в диапазоне 1-365, номер дня недели 1 января должен лежать в диапазоне 1-7." << std::endl << std::endl;
+	}
+
+
+	//Найти количество квадратов
+	int A, B, C, c_in_a, c_in_b, all, sqr;
+	std::cout << "Введите целые положительные числа А, В и С: ";
+	std::cin >> A >> B >> C;
+	if ((A > 0) && (B > 0) && (C > 0))
+	{
+		c_in_a = A / C;
+		c_in_b = B / C;
+		all = c_in_a * c_in_b;
+		sqr = (A * B) - (all * pow(C, 2));
+		std::cout << "Максимум в прямоугольнике со сторонами " << A << " и " << B << " можно разместить квадратов со стороной " << C << ": " << all << std::endl << "Площадь незанятой части прямоугольника: " << sqr << std::endl << std::endl;
+
+	}
+	else
+	{
+		std::cout << "Введенные значения некорректны: все числа должны быть положительными." << std::endl << std::endl;
+	}
+
+	//Определить номер столетия
+	int year, cent;
+	std::cout << "Введите год: ";
+	std::cin >> year;
+	
+	if (year <= 0)
+	{
+		std::cout << "Некорректное значение: введите целое положительное число." << std::endl << std::endl;
+	}
+	else
+	{
+		if (year % 100 == 0)
+		{
+			cent = year / 100;
+		}
+		else
+		{
+			cent = year / 100 + 1;
+		}
+				std::cout << "Номер столетия: " << cent << std::endl << std::endl;
+		
+	}
+
+
+	return 0;
+}
