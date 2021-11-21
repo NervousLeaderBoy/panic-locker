@@ -1,0 +1,206 @@
+#include <iostream>
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+
+	//1
+	int A, B;
+	std::cout << "Введите два целых числа А и В: ";
+	std::cin >> A >> B;
+
+	if (A != B)
+	{
+		A = std::max(A, B); 
+		B = std::max(A, B);
+	}
+	else
+	{
+		A = 0;
+		B = 0;
+	}
+
+	std::cout << "Новые значения переменных: " << std::endl << "A = " << A << std::endl << "B = " << B << std::endl << std::endl;
+	
+
+	//2
+	int C, sum, max1, max2;
+	std::cout << "Введите три целых числа: ";
+	std::cin >> A >> B >> C;
+	if (A > B)
+	{
+		max1 = A;
+		if (B > C)
+		{
+			max2 = B;
+		}
+		else
+		{
+			max2 = C;
+		}
+	}
+	else
+	{
+		max1 = B;
+		if (A > C)
+		{
+			max2 = A;
+		}
+		else
+		{
+			max2 = C;
+		}
+	}
+
+	sum = max1 + max2;
+	std::cout<< "Сумма двух наибольших чисел: " << sum << std::endl << std::endl;
+
+
+	//3
+
+	int Ax, Ay, Bx, By, Cx, Cy;
+	float S1, S2;
+
+	std::cout << "Введите координаты трех точек: " << std::endl;
+	std::cout << "A(x, y) = ";
+	std::cin >> Ax >> Ay;
+	std::cout << "B(x, y) = ";
+	std::cin >> Bx >> By;
+	std::cout << "C(x, y) = ";
+	std::cin >> Cx >> Cy;
+
+	S1 = sqrt(pow((Bx - Ax), 2) + pow((By - Ay), 2));
+	S2 = sqrt(pow((Cx - Ax), 2) + pow((Cy - Ay), 2)); 
+
+	
+	if (S1 != S2)
+	{
+		std::cout << "Ближайшая к А точка - ";
+		if (S1 < S2)
+		{
+			std::cout << "B, расстояние до точки А = " << S1 << std::endl << std::endl;
+		}
+		else
+		{
+			std::cout << "C, расстояние до точки А = " << S2 << std::endl << std::endl;
+		}
+	}
+	else
+	{
+		std::cout << "В и С находятся от точки А на одинаковом расстоянии равном " << S1 << std::endl << std::endl;
+	}
+
+
+	//4
+	int p1, p2;
+	std::cout << "Введите координаты точки: " << std::endl;
+	std::cout << "A(x, y) = ";
+	std::cin >> Ax >> Ay;
+
+
+	//Присваиваю определенным ситуациям определенные значения, чтобы потом использовать switch, потому что хочу попробовать разные способы решения задач.
+	if (Ax < 0)
+	{
+		p1 = 1;
+	}
+	else
+	{
+		p1 = 0;
+	}
+	if (Ay < 0)
+	{
+		p2 = 2;
+	}
+	else
+	{
+		p2 = 0;
+	}
+	if (Ax == 0 || Ay == 0)
+	{
+		std::cout << "Точка лежит на одной из координатных осей. Невозможно определить координатную четверть." << std::endl << std::endl;
+	}
+	switch (p1 + p2) {
+	case 0:
+		std::cout << "Точка находится в первой четверти координатной плоскости." << std::endl << std::endl;
+		break;
+	case 1:
+		std::cout << "Точка находится во второй четверти координатной плоскости." << std::endl << std::endl;
+		break;
+	case 3:
+		std::cout << "Точка находится в третьей четверти координатной плоскости." << std::endl << std::endl;
+		break;
+	case 2:
+		std::cout << "Точка находится в четвертой четверти координатной плоскости." << std::endl << std::endl;
+		break;
+	}
+		
+	//5
+	int n, d;
+	std::cout << "Введите целое число: ";
+	std::cin >> A;
+
+	//Это решу нормальным способом :D
+		std::cout << "A - ";
+		if (A == 0)
+		{
+			std::cout << "нулевое ";
+		}
+		if (A > 0)
+		{
+			std::cout << "положительное ";
+		}
+		if (A < 0)
+		{
+			std::cout << "отрицательное ";
+		}
+
+		if (A % 2 == 0)
+		{
+			std::cout << "четное ";
+		}
+		else
+		{
+			std::cout << "нечетное  ";
+		}
+		std::cout << "число." << std::endl << std::endl;
+	
+	
+	//6
+	std::cout << "Введите целое число в диапазоне 1-999: ";
+	std::cin >> A;
+
+	if (A >= 1 && A<= 999)
+	{
+		std::cout << "A - ";
+		if (A < 10)
+		{
+			std::cout << "однозначное ";
+		}
+		if (A >= 10 && A < 100)
+		{
+			std::cout << "двузначное ";
+		}
+		if (A >= 100)
+		{
+			std::cout << "трехзначное ";
+		}
+			
+		if (A%2 == 0)
+		{
+			std::cout << "четное ";
+		}
+		else
+		{
+			std::cout << "нечетное ";
+		}
+		std::cout << "число." << std::endl << std::endl;
+	}
+	else
+	{
+		std::cout << "Число вне диапазона." << std::endl << std::endl;
+	}
+
+
+
+	return 0;
+}
