@@ -1,0 +1,624 @@
+#include <iostream>
+#include <string>
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+
+	
+	//1
+	int day, month, temp;
+	std::cout << "Введите дату в формате 'день месяц': ";
+	std::cin >> day >> month;
+	
+	if (day >= 1 && day <= 31 && month >= 1 && month <= 12)
+	{
+		std::cout << "Это ";
+		temp = day;
+		if (day > 9 && day < 20)
+		{
+			temp = 0;
+			switch (day) {
+			case 10:
+				std::cout << "десятое ";
+				break;
+			case 11:
+				std::cout << "одиннадцатое ";
+				break;
+			case 12:
+				std::cout << "двенадцатое ";
+				break;
+			case 13:
+				std::cout << "тринадцатое ";
+				break;
+			case 14:
+				std::cout << "четырнадцатое ";
+				break;
+			case 15:
+				std::cout << "пятнадцатое ";
+				break;
+			case 16:
+				std::cout << "шестнадцатое ";
+				break;
+			case 17:
+				std::cout << "семнадцатое ";
+				break;
+			case 18:
+				std::cout << "восемнадцатое ";
+				break;
+			case 19:
+				std::cout << "девятнадцатое ";
+				break;
+			}
+		}
+		if (day > 20 && day < 30)
+		{
+			temp = day % 10;
+			std::cout << "двадцать ";
+		}
+		if (day == 20)
+		{
+			temp = 0;
+			std::cout << "двадцатое ";
+		}
+		if (day == 31)
+		{
+			temp = day % 10;
+			std::cout << "тридцать ";
+		}
+		if (day == 30)
+		{
+			temp = 0;
+			std::cout << "тридцатое ";
+		}
+		//я, конечно, не сильно облегчила себе задачу, но это все чтоб 31 кейс не делать...
+
+		switch (temp) {
+		case 1:
+			std::cout << "первое ";
+			break;
+		case 2:
+			std::cout << "второе ";
+			break;
+		case 3:
+			std::cout << "третье ";
+			break;
+		case 4:
+			std::cout << "четвертое ";
+			break;
+		case 5:
+			std::cout << "пятое ";
+			break;
+		case 6:
+			std::cout << "шестое ";
+			break;
+		case 7:
+			std::cout << "седьмое ";
+			break;
+		case 8:
+			std::cout << "восьмое ";
+			break;
+		case 9:
+			std::cout << "девятое ";
+			break;
+		default:
+			break;
+		}
+
+
+		switch (month) {
+		case 1:
+			std::cout << "января" << std::endl << std::endl;
+			break;
+		case 2:
+			std::cout << "февраля" << std::endl << std::endl;
+			break;
+		case 3:
+			std::cout << "марта" << std::endl << std::endl;
+			break;
+		case 4:
+			std::cout << "апреля" << std::endl << std::endl;
+			break;
+		case 5:
+			std::cout << "мая" << std::endl << std::endl;
+			break;
+		case 6:
+			std::cout << "июня" << std::endl << std::endl;
+			break;
+		case 7:
+			std::cout << "июля" << std::endl << std::endl;
+			break;
+		case 8:
+			std::cout << "августа" << std::endl << std::endl;
+			break;
+		case 9:
+			std::cout << "сентября" << std::endl << std::endl;
+			break;
+		case 10:
+			std::cout << "октября" << std::endl << std::endl;
+			break;
+		case 11:
+			std::cout << "ноября" << std::endl << std::endl;
+			break;
+		case 12:
+			std::cout << "декабря" << std::endl << std::endl;
+			break;
+		default:
+			break;
+		}
+	}
+	else
+	{
+		std::cout << "Упс! Что-то пошло не так. Возможно, вы ввели некорректное значение." << std::endl << std::endl;
+	}
+
+	
+	//2
+	std::string dir;
+	int end, step;
+	std::cout << "Введите изначальное направление робота (N, S, E, W): "; //он в упор не читает русские буквы
+	std::cin >> dir;
+	
+	if ((dir == "N") || (dir == "S") || (dir == "E") || (dir == "W"))
+	{
+		
+		if (dir == "N")
+		{
+			temp = 0;
+		}
+		if (dir == "W")
+		{
+			temp = 1;
+		}
+		if (dir == "S")
+		{
+			temp = 2;
+		}
+		if (dir == "E")
+		{
+			temp = 3;
+		}
+		std::cout << "Введите направление движения (-1 - повернуть направо, 0 - продолжить движение, 1 - повернуть налево): ";
+		std::cin >> step;
+		if (step == -1 || step == 0 || step == 1)
+		{
+			end = (temp + step) % 4;
+			std::cout << "Текущее направление робота: " ;
+			switch (end) {
+			case 0:
+				std::cout << "Север.";
+				break;
+			case 1:
+				std::cout << "Запад.";
+				break;
+			case 2:
+				std::cout << "Юг.";
+				break;
+			case 3:
+				std::cout << "Восток.";
+				break;
+			}
+			std::cout << std::endl << std::endl;
+		}
+		else
+		{
+			std::cout << "Упс! Что-то пошло не так." << std::endl << std::endl;
+		}	
+	}
+	else
+	{
+		std::cout << "Упс! Что-то пошло не так." << std::endl << std::endl;
+	}
+	
+
+	//3
+
+	int N;
+	std::cout << "Введите число заданий (10-40): ";
+	std::cin >> N;
+
+	//а теперь нудным и длинным путем
+	if (N >= 10 && N <= 40)
+	{
+		std::cout << "Всего ";
+		if ((N >= 10 && N <= 20) || (N >= 25 && N <= 30) || (N >= 35 && N <= 40))
+		{
+			switch (N) {
+			case 10:
+				std::cout << "десять ";
+				break;
+			case 11:
+				std::cout << "одиннацдцать ";
+				break;
+			case 12:
+				std::cout << "двенадцать ";
+				break;
+			case 13:
+				std::cout << "тринадцать ";
+				break;
+			case 14:
+				std::cout << "четырнадцать ";
+				break;
+			case 15:
+				std::cout << "пятнадцать ";
+				break;
+			case 16:
+				std::cout << "шестнадцать ";
+				break;
+			case 17:
+				std::cout << "семнадцать ";
+				break;
+			case 18:
+				std::cout << "восемнадцать ";
+				break;
+			case 19:
+				std::cout << "девятнадцать ";
+				break;
+			case 20:
+				std::cout << "двадцать ";
+				break;
+			case 25:
+				std::cout << "двадцать пять ";
+				break;
+			case 26:
+				std::cout << "двадцать шесть ";
+				break;
+			case 27:
+				std::cout << "двадцать семь ";
+				break;
+			case 28:
+				std::cout << "двадцать восемь ";
+				break;
+			case 29:
+				std::cout << "двадцать девять ";
+				break;
+			case 30:
+				std::cout << "тридцать ";
+				break;
+			case 35:
+				std::cout << "тридцать пять ";
+				break;
+			case 36:
+				std::cout << "тридцать шесть ";
+				break;
+			case 37:
+				std::cout << "тридцать семь ";
+				break;
+			case 38:
+				std::cout << "тридцать восемь ";
+				break;
+			case 39:
+				std::cout << "тридцать девять ";
+				break;
+			case 40:
+				std::cout << "сорок ";
+				break;
+	
+			}
+			std::cout << "учебных заданий." << std::endl << std::endl;
+		}
+		if (N == 21 || N == 31)
+		{
+			switch (N) {
+			case 21: 
+				std::cout << "двадцать одно ";
+				break;
+			case 31:
+				std::cout << "тридцать одно ";
+			}
+		std::cout << "учебное задание." << std::endl << std::endl;
+		}
+		if ((N >= 22 && N <= 24) || (N >= 32 && N <= 34))
+		{
+			switch (N) {
+			case 22:
+				std::cout << "двадцать два ";
+				break;
+			case 23:
+				std::cout << "двадцать три ";
+				break;
+			case 24:
+				std::cout << "двадцать четыре ";
+				break;
+			case 32:
+				std::cout << "тридцать два ";
+				break;
+			case 33:
+				std::cout << "тридцать три ";
+				break;
+			case 34:
+				std::cout << "тридцать четыре ";
+				break;
+			}
+			std::cout << "учебных задания." << std::endl << std::endl;
+		}
+	}
+	else
+	{
+	std::cout << "Число вне указанного диапазона." << std::endl << std::endl;
+	 }
+	 
+
+	 //4
+
+	int a, b, c;
+	std::cout << "Введите целое трехзначное число: ";
+	std::cin >> N;
+	if (N >= 100 && N <= 999)
+	{
+		a = N / 100;
+		b = (N - a * 100) / 10;
+		c = N % 10;
+
+		std::cout << "Данное число - ";
+		switch (a)
+		{
+		case 1:
+			std::cout << "сто ";
+			break;
+		case 2:
+			std::cout << "двести ";
+			break;
+		case 3:
+			std::cout << "триста ";
+			break;
+		case 4:
+			std::cout << "четыреста ";
+			break;
+		case 5:
+			std::cout << "пятьсот ";
+			break;
+		case 6:
+			std::cout << "шестьсот ";
+			break;
+		case 7:
+			std::cout << "семьсот ";
+			break;
+		case 8:
+			std::cout << "восемьсот ";
+			break;
+		case 9:
+			std::cout << "девятьсот ";
+			break;
+		}
+
+		switch (b)
+		{
+		case 0:
+			break;
+		case 1:
+			switch (c)
+			{
+			case 0: 
+				std::cout << "десять";
+				break;
+			case 1:
+				std::cout << "одиннадцать";
+				break;
+			case 2:
+				std::cout << "двенадцать";
+				break;
+			case 3:
+				std::cout << "тринадцать";
+				break;
+			case 4:
+				std::cout << "четырнадцать";
+				break;
+			case 5:
+				std::cout << "пятнадцать";
+				break;
+			case 6:
+				std::cout << "шестнадцать";
+				break;
+			case 7:
+				std::cout << "семнадцать";
+				break;
+			case 8:
+				std::cout << "восемнадцать";
+				break;
+			case 9:
+				std::cout << "девятнадцать";
+				break;
+			}
+			c = 0;
+			break;
+
+		case 2:
+			std::cout << "двадцать ";
+			break;
+		case 3:
+			std::cout << "тридцать ";
+			break;
+		case 4:
+			std::cout << "сорок ";
+			break;
+		case 5:
+			std::cout << "пятьдесят ";
+			break;
+		case 6:
+			std::cout << "шестьдесят ";
+			break;
+		case 7:
+			std::cout << "семьдесят ";
+			break;
+		case 8:
+			std::cout << "восемьдесят ";
+			break;
+		case 9:
+			std::cout << "девяносто ";
+			break;
+		}
+
+		switch (c)
+		{
+		case 0:
+			break;
+		case 1:
+			std::cout << "один";
+			break;
+		case 2:
+			std::cout << "два";
+			break;
+		case 3:
+			std::cout << "три";
+			break;
+		case 4:
+			std::cout << "четыре";
+			break;
+		case 5:
+			std::cout << "пять";
+			break;
+		case 6:
+			std::cout << "шесть";
+			break;
+		case 7:
+			std::cout << "семь";
+			break;
+		case 8:
+			std::cout << "восемь";
+			break;
+		case 9:
+			std::cout << "девять";
+			break;
+		}
+		std::cout << std::endl << std::endl;
+	}
+	else
+	{
+	std::cout << "Число вне диапазона." << std::endl << std::endl;
+	}
+	
+
+	//5
+	int year, anim, col;
+	std::cout << "Введите год: ";
+	std::cin >> year;
+
+	col = abs(year - 1984) % 60 % 5;
+	anim = abs(year - 1984) % 60 % 12;
+
+	std::cout << "Это год ";
+	if (year >= 1984)
+	{
+		switch (col)
+		{
+		case 0: 
+			std::cout << "зелен";
+			break;
+		case 1:
+			std::cout << "красн";
+			break;
+		case 2:
+			std::cout << "желт";
+			break;
+		case 3:
+			std::cout << "бел";
+			break;
+		case 4:
+			std::cout << "черн";
+			break;
+		}
+		switch (anim)
+		{
+		case 0:
+			std::cout << "ой крысы.";
+			break;
+		case 1: 
+			std::cout << "ой коровы.";
+			break;
+		case 2:
+			std::cout << "ого тигра.";
+			break;
+		case 3:
+			std::cout << "ого зайца.";
+			break;
+		case 4:
+			std::cout << "ого дракона.";
+			break;
+		case 5:
+			std::cout << "ой змеи.";
+			break;
+		case 6:
+			std::cout << "ой лошади.";
+			break;
+		case 7:
+			std::cout << "ой овцы.";
+			break;
+		case 8:
+			std::cout << "ой обезьяны.";
+			break;
+		case 9:
+			std::cout << "ой курицы.";
+			break;
+		case 10:
+			std::cout << "ой собаки.";
+			break;
+		case 11:
+			std::cout << "ой свиньи.";
+			break;
+		}
+	}
+	if (year < 1984)
+	{
+		//в обратную сторону отсчет
+		switch (col)
+		{
+		case 4:
+			std::cout << "зелен";
+			break;
+		case 3:
+			std::cout << "красн";
+			break;
+		case 2:
+			std::cout << "желт";
+			break;
+		case 1:
+			std::cout << "бел";
+			break;
+		case 0:
+			std::cout << "черн";
+			break;
+		}
+		switch (anim)
+		{
+		case 12:
+			std::cout << "ой крысы.";
+			break;
+		case 11:
+			std::cout << "ой коровы.";
+			break;
+		case 10:
+			std::cout << "ого тигра.";
+			break;
+		case 9:
+			std::cout << "ого зайца.";
+			break;
+		case 8:
+			std::cout << "ого дракона.";
+			break;
+		case 7:
+			std::cout << "ой змеи.";
+			break;
+		case 6:
+			std::cout << "ой лошади.";
+			break;
+		case 5:
+			std::cout << "ой овцы.";
+			break;
+		case 4:
+			std::cout << "ой обезьяны.";
+			break;
+		case 3:
+			std::cout << "ой курицы.";
+			break;
+		case 2:
+			std::cout << "ой собаки.";
+			break;
+		case 1:
+			std::cout << "ой свиньи.";
+			break;
+		}
+	}
+	std::cout << std::endl;
+
+	return 0;
+}
