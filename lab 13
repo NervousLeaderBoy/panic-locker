@@ -1,0 +1,81 @@
+#include <iostream>
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	//1
+	double cost, cost2;
+	std::cout << "Введите цену 1 кг конфет: ";
+	std::cin >> cost;
+	for (double i = 0.1; i <= 1; i = i + 0.1)
+	{
+		cost2 = i * cost;
+		std::cout << "Цена " << i << " кг конфет - " << cost2 << std::endl;
+	}
+	std::cout << std::endl;
+
+	//2
+	int N;
+	double n, n2;
+	n = 0;
+	n2 = 1.1;
+
+	std::cout << "Введите целое N: ";
+	std::cin >> N;
+	for (int i = 1; i <= N; i++)
+	{
+		n = n + n2;
+		n2 = n2 + 0.1;
+	}
+	std::cout << "Сумма " << N << " множителей = " << n << std::endl << std::endl;
+
+	//3
+	std::cout << "Введите целое N: ";
+	std::cin >> N;
+	if (N > 0)
+	{
+		n = 0;
+		for (int i = 1; i <= (2 * N - 1); i = i + 2)
+		{
+			n = n + i;
+			std::cout << "Текущее значение суммы: " << n << std::endl;
+		}
+		std::cout << "Квадрат числа " << N << " равен - " << n << std::endl << std::endl;
+	}
+	else
+	{
+		std::cout << "N должно быть больше 0." << std::endl << std::endl;
+	}
+
+	//4
+	double A;
+	std::cout << "Введите вещественное число А и целое число N: ";
+	std::cin >> A >> N;
+	if (N > 0)
+	{
+		n = 1;
+		for (int i = 1; i <= N; i++)
+		{
+			n = n + pow(A, i);
+		}
+		std::cout << "Сумма = " << n << std::endl << std::endl;
+	}
+	else
+	{
+		std::cout << "N должно быть больше 0." << std::endl << std::endl;
+	}
+
+	//5
+	std::cout << "Введите вещественное число А и целое число N: ";
+	std::cin >> A >> N;
+	int i = 1;
+	n = 1;
+	while ((N > 0) && (i <= N))
+	{
+		n = n + (pow(-1, i) * pow(A, i));
+		i++;
+	}
+	std::cout << "Сумма = " << n << std::endl << std::endl;
+
+	return 0;
+}
