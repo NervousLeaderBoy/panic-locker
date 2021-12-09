@@ -1,0 +1,116 @@
+#include <iostream>
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	
+	//1
+	int A, B;
+	std::cout << "Введите два целых числа A и В (А < B): ";
+	std::cin >> A >> B;
+	if (A < B)
+	{
+		for (int i = A; i <= B; i++)
+		{
+			for (int j = 1; j <= i; j++)
+			{
+				std::cout << i;
+			}
+			std::cout << std::endl;
+		}
+	}
+	std::cout << std::endl;
+
+	//2
+	int l, lengh;
+	std::cout << "Введите два целых числа A и В (А > B): ";
+	std::cin >> A >> B;
+	if (A > B)
+	{
+		lengh = A;
+		l = B;
+		while (l < A)
+		{
+			lengh -= B;
+			l += B;
+		}
+		std::cout << "Длина не занятой части отрезка А: " << lengh << std::endl << std::endl;
+	}
+	
+	//3
+	int N, sum;
+	std::cout << "Введите целое число: ";
+	std::cin >> N;
+	if (N > 1)
+	{
+		int K = 0;
+		sum = 0;
+		while (sum < N)
+		{
+			K++;
+			sum += K;
+			
+		}
+		std::cout << "Наименьшее К: " << K << std::endl << "Сумма чисел от 1 до К: " << sum << std::endl << std::endl;
+	}
+
+	
+	//4
+	int P, K, S;
+	S = 1000;
+	std::cout << "Введите процент увеличения вклада (0-25): ";
+	std::cin >> P;
+	if (0 < P && P < 25)
+	{
+		K = 0;
+		while (S < 1100)
+		{
+			K++; //просто счетчик месяцев
+			S += S * P / 100;
+		}
+		std::cout << "Итоговый размер вклада: " << S << std::endl;
+		std::cout << "Будет достигнут через месяцев: " << K << std::endl << std::endl;
+	}
+	
+	//5
+	int NOD;
+	std::cout << "Введите два целых числа: ";
+	std::cin >> A >> B;
+	while (A != B)
+	{
+		if (A > B)
+			A -= B;
+		else
+			B -= A;
+	}
+	NOD = A;
+	std::cout << "Наибольший общий делитель: " << NOD << std::endl << std::endl;
+	
+	//6
+	int temp, f, f1;
+	std::cout << "Введите число фиббоначи: ";
+	std::cin >> N;
+	f = 1;
+	f1 = 1;
+	K = 3; //потому что для чисел, стоящих на позиции 1, 2 и 3 особый случай.
+	if (N == 0)
+		std::cout << "Порядковый номер числа: 1" << std::endl << std::endl;
+	else if (N == 1)
+		std::cout << "Порядковый номер числа: 2 и 3." << std::endl << std::endl; //потому что в ряде две единицы. Хотя по условию число > 1, но почему бы и нет.
+	else
+	{
+		while (f1 < N)
+		{
+			K++; //счетчик
+			temp = f1;
+			f1 += f;
+			f = temp;
+		}
+		if (f1 == N)
+			std::cout << "Порядковый номер числа: " << K << std::endl << std::endl;
+		else
+			std::cout << "Число вне ряда чисел фиббоначи." << std::endl << std::endl;
+	}
+	
+
+	return 0;
+} 
