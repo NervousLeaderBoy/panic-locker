@@ -1,0 +1,123 @@
+#include <iostream>
+
+float PowerA3(float A)
+{
+	float B = A * A * A;
+	return B;
+}
+
+int Sign(float X)
+{
+	if (X < 0)
+		X = -1;
+	else if (X == 0)
+		X = 0;
+	else
+		X = 1;
+	return X;
+}
+
+float RingS(float R1, float R2)
+{
+	const float Pi = 3.14;
+	float S = Pi * pow(R1, 2) - Pi * pow(R2, 2);
+	return S;
+}
+
+int Quarter(float x, float y)
+{
+	int q;
+	if (x > 0 && y > 0)
+		q = 1;
+	else if (x < 0 && y > 0)
+		q = 2;
+	else if (x < 0 && y < 0)
+		q = 3;
+	else
+		q = 4;
+	return q;
+}
+
+float Fact2(int N)
+{
+	float Nf = 1;
+	if (N % 2 == 0)
+	{
+		for (int i = 2; i <= N; i += 2)
+		{
+			Nf *= i;
+		}
+	}
+	else
+	{
+		for (int i = 1; i <= N; i += 2)
+		{
+			Nf *= i;
+		}
+	}
+	return Nf;
+}
+
+int main()
+{
+	
+	setlocale(LC_ALL, "Russian");
+	
+	float a, b;
+	std::cout << "Введите числа, для которых требуется высчитать третью степень: " << std::endl;
+	for (int i = 1; i <= 5; i++)
+	{
+		std::cin >> a;
+		b = PowerA3(a);
+		std::cout << "Третья степень числа " << a << " = " << b << std::endl;
+	}
+	std::cout << std::endl;
+	
+
+	float A, B, C;
+	std::cout << "Введите два числа: ";
+	std::cin >> A >> B;
+	C = Sign(A) + Sign(B);
+	std::cout << "Значение Sign(A)+Sign(B) = " << C << std::endl << std::endl;
+	
+
+	float R1, R2, S;
+	std::cout << "Введите внешние и внутренние радиусы колец:" << std::endl;
+	for (int i = 1; i <= 3; i++)
+	{
+		std::cin >> R1 >> R2;
+		S = RingS(R1, R2);
+		std::cout << "Площадь кольца = " << S << std::endl;
+	}
+	std::cout << std::endl;
+	
+	float x, y;
+	int q;
+	std::cout << "Введите ненулевые координаты х и у..." << std::endl;
+	for (int i = 1; i <= 3; i++)
+	{
+		std::cout << "X: ";
+		std::cin >> x;
+		std::cout << "Y: ";
+		std::cin >> y;
+		if (x != 0 && y != 0)
+		{
+			q = Quarter(x, y);
+			std::cout << "Номер координатной четверти данной точки: " << q;
+		}
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+
+	int N;
+	float Nf;
+	std::cout << "Введите число для которого требуется высчитать двойной факториал: ";
+	std::cin >> N;
+	if (N > 0)
+	{
+		Nf = Fact2(N);
+		std::cout << "Двойной факториал = " << Nf << std::endl;
+	}
+
+	return 0;
+}
