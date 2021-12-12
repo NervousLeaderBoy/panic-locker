@@ -1,0 +1,147 @@
+#include <iostream>
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	
+	//1
+	int N, k = 1;
+	
+	std::cout << "Введите размер массива: ";
+	std::cin >> N;
+	if (N > 0)
+	{
+		int* arr = new int[N];
+		for (int i = 0; i < N; i++)
+		{
+			arr[i] = k;
+			k += 2;
+		}
+		for (int i = 0; i < N; i++)
+		{
+			std::cout << arr[i];
+			if (i == N - 1)
+				std::cout << "." << std::endl << std::endl;
+			else
+				std::cout << ", ";
+		}
+	}
+	else
+		std::cout << "Введено некорректное значение размера массива: размер должен быть больше 0." << std::endl << std::endl;
+	
+	//2
+	float A, D;
+	std::cout << "Введите размер массива: ";
+	std::cin >> N;
+	std::cout << "Введите первый член геометрической прогрессии: ";
+	std::cin >> A;
+	std::cout << "Введите знаменатель геометрической прогрессии: ";
+	std::cin >> D;
+	if (N > 1)
+	{
+		float* a = new float[N];
+		for (int i = 0; i < N; i++)
+		{
+			a[i] = A * pow(D, i);
+		}
+		for (int i = 0; i < N; i++)
+		{
+			std::cout << a[i];
+			if (i == N - 1)
+				std::cout << "." << std::endl << std::endl;
+			else
+				std::cout << ", ";
+		}
+	}
+	else
+		std::cout << "Введено некорректное значение размера массива: размер должен быть больше 1." << std::endl << std::endl;
+
+	//3
+	int a, b;
+	std::cout << "Введите размер массива: ";
+	std::cin >> N;
+	if (N > 2)
+	{
+		std::cout << "Введите первый и второй элемент массива: ";
+		std::cin >> a >> b;
+		int* m = new int[N];
+		m[0] = a;
+		m[1] = b;
+		for (int i = 2; i < N; i++)
+		{
+			m[i] = m[i - 1] + m[i - 2];
+		}
+		for (int i = 0; i < N; i++)
+		{
+			std::cout << m[i];
+			if (i == N - 1)
+				std::cout << "." << std::endl << std::endl;
+			else
+				std::cout << ", ";
+		}
+	}
+	else
+		std::cout << "Введено некорректное значение размера массива: размер должен быть больше 2." << std::endl << std::endl;
+	
+	//4
+	std::cout << "Введите размер массива: ";
+	std::cin >> N;
+	if (N > 0)
+	{
+		std::cout << "Введите " << N << " чисел:" << std::endl;
+		int* ar = new int[N];
+		for (int i = 0; i < N; i++)
+		{
+			std::cout << "ar[" << i << "] = ";
+			std::cin >> ar[i];
+		}
+		
+		if (N % 2 == 0)
+		{
+			for (int i = 0; i < N / 2; i++)
+			{
+				std::cout << ar[i] << ", " << ar[N - i - 1];
+				if (i < N / 2 - 1)
+					std::cout << ", ";
+				else
+					std::cout << "." << std::endl << std::endl;
+			}
+		}
+		else
+		{
+			for (int i = 0; i < (N+1) / 2; i++)
+			{
+				std::cout << ar[i];
+				if (i < (N + 1) / 2 - 1)
+					std::cout << ", " << ar[N - i - 1] << ", ";
+				else
+					std::cout << "." << std::endl << std::endl;
+			}
+		}
+		
+	}
+	
+	//5 и мне надоели эти красивые запятые и точки
+	std::cout << "Введите размер массива: ";
+	std::cin >> N;
+	if (N > 0)
+	{
+		std::cout << "Введите " << N << " чисел:" << std::endl;
+		int* mas = new int[N];
+		for (int i = 0; i < N; i++)
+		{
+			std::cout << "mas[" << i << "] = ";
+			std::cin >> mas[i];
+		}
+		for (int i = 0; i < N; i += 2)
+		{
+			std::cout << mas[i] << " ";
+		}
+		std::cout << std::endl;
+		for (int i = N - 1; i >= 0; i -= 2)
+		{
+			std::cout << mas[i] << " ";
+		}
+		std::cout << std::endl << std::endl;
+	}
+	return 0;
+}
