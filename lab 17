@@ -1,0 +1,131 @@
+#include <iostream>
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+
+	int N, K, L;
+	
+	//1
+	float sum;
+	std::cout << "Введите размер массива: ";
+	std::cin >> N;
+	if (N > 1)
+	{
+		int* a = new int[N];
+		for (int i = 1; i < N + 1; i++)
+		{
+			std::cout << "a[" << i << "] = ";
+			std::cin >> a[i];
+		}
+		std::cout << "Введите два целых числа обозначающих номера элементов массива: ";
+		std::cin >> K >> L;
+		if (L >= K && K <= N)
+		{
+			sum = 0;
+			for (int i = K; i <= L; i++)
+			{
+				sum = sum + a[i];
+			}
+			sum = sum / (L - K + 1);
+			std::cout << "Средне арифметическое чисел массива от " << K << " до " << L << ": " << sum << std::endl << std::endl;
+		}
+		else std::cout << "Невозможно посчитать среднее арифметическое чисел от " << K << " до " << L << std::endl << std::endl;
+	}
+	//2
+	int r;
+	std::cout << "Введите размер массива: ";
+	std::cin >> N;
+	if (N > 1)
+	{
+		int* ar = new int[N];
+		for (int i = 0; i < N; i++)
+		{
+			std::cout << "ar[" << i << "] = ";
+			std::cin >> ar[i];
+		}
+		for (int i = 0; i < N-2; i++)
+		{
+			if (ar[i + 1] - ar[i] == ar[i + 2] - ar[i + 1])
+			{
+				r = ar[i + 1] - ar[i];
+			}
+			else
+			{
+				r = 0;
+				break;
+			}
+		}
+		std::cout << "Результат = " << r << std::endl << std::endl;
+	}
+	//3
+
+	std::cout << "Введите размер массива: ";
+	std::cin >> N;
+	int min;
+	if (N > 1)
+	{
+		int* A = new int[N];
+		for (int i = 0; i < N; i++)
+		{
+			std::cout << "A[" << i << "] = ";
+			std::cin >> A[i];
+		}
+		min = A[0];
+		for (int i = 0; i < N; i += 2)
+		{
+			if (min > A[i]) min = A[i];
+		}
+		std::cout << std::endl << "Минимальный элемент среди четных элементов массива: " << min << std::endl << std::endl;
+		
+	}
+	
+	//4
+	std::cout << "Введите размер массива: ";
+	std::cin >> N;
+	int Lmin;
+	if (N > 1)
+	{
+		int* Ar = new int[N];
+		for (int i = 0; i < N; i++)
+		{
+			std::cout << "Ar[" << i << "] = ";
+			std::cin >> Ar[i];
+		}
+		for (int i = 0; i < N; i++)
+		{
+			if (Ar[i] > Ar[i - 1] && Ar[i] > Ar[i + 1]) Lmin = Ar[i];
+		}
+		std::cout << "Последний локальный максимум: " << Lmin << std::endl << std::endl;
+
+	}
+	
+	//5
+	std::cout << "Введите размер массива: ";
+	std::cin >> N;
+	int n1 = 0, n2 = 0;
+	if (N > 1)
+	{
+		int* Arr = new int[N];
+		std::cout << "Напоминание: в массиве должно быть ровно 2 одинаковых элемента!" << std::endl;
+		for (int i = 0; i < N; i++)
+		{
+			std::cout << "Arr[" << i << "] = ";
+			std::cin >> Arr[i];
+		}
+		for (int i = 0; i < N; i++)
+		{
+			for (int j = i+1; j < N; j++)
+			{
+				if (Arr[i] == Arr[j])
+				{
+					n1 = i;
+					n2 = j;
+				}
+			}
+		}
+		if (n1 != 0 && n2 != 0) std::cout << "Одинаковые элементы стоят на номерах " << n1 << " и " << n2 << std::endl;
+		else std::cout << "В массиве нет одинаковых элементов." << std::endl;
+
+	}
+	return 0;
+}
